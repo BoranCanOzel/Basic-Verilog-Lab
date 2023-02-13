@@ -1,0 +1,49 @@
+#! /c/Source/iverilog-install/bin/vvp
+:ivl_version "12.0 (devel)" "(s20150603-1110-g18392a46)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision - 9;
+:vpi_module "C:\iverilog\lib\ivl\system.vpi";
+:vpi_module "C:\iverilog\lib\ivl\vhdl_sys.vpi";
+:vpi_module "C:\iverilog\lib\ivl\vhdl_textio.vpi";
+:vpi_module "C:\iverilog\lib\ivl\v2005_math.vpi";
+:vpi_module "C:\iverilog\lib\ivl\va_math.vpi";
+S_00000186d1e18f60 .scope module, "wireTest_tb" "wireTest_tb" 2 8;
+ .timescale -9 -9;
+v00000186d1e1e7d0_0 .var "A", 0 0;
+v00000186d1e1ebd0_0 .net "B", 0 0, L_00000186d1f331e0;  1 drivers
+v00000186d1e1ec70_0 .net "C", 0 0, L_00000186d1f65ff0;  1 drivers
+S_00000186d1f65e60 .scope module, "uut" "wireTest" 2 18, 3 2 0, S_00000186d1e18f60;
+ .timescale -9 -9;
+    .port_info 0 /INPUT 1 "A";
+    .port_info 1 /OUTPUT 1 "B";
+    .port_info 2 /OUTPUT 1 "C";
+L_00000186d1f331e0 .functor BUFZ 1, v00000186d1e1e7d0_0, C4<0>, C4<0>, C4<0>;
+v00000186d1e1ef20_0 .net "A", 0 0, v00000186d1e1e7d0_0;  1 drivers
+v00000186d1e190f0_0 .net "B", 0 0, L_00000186d1f331e0;  alias, 1 drivers
+v00000186d1f33140_0 .net "C", 0 0, L_00000186d1f65ff0;  alias, 1 drivers
+L_00000186d1f65ff0 .reduce/nor v00000186d1e1e7d0_0;
+    .scope S_00000186d1e18f60;
+T_0 ;
+    %vpi_call 2 23 "$dumpfile", "wiretest_tb_vcd" {0 0 0};
+    %vpi_call 2 25 "$dumpvars", 32'sb00000000000000000000000000000000, S_00000186d1e18f60 {0 0 0};
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v00000186d1e1e7d0_0, 0, 1;
+    %delay 20, 0;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v00000186d1e1e7d0_0, 0, 1;
+    %delay 20, 0;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v00000186d1e1e7d0_0, 0, 1;
+    %delay 20, 0;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v00000186d1e1e7d0_0, 0, 1;
+    %delay 20, 0;
+    %vpi_call 2 47 "$display", "Wire test complete!" {0 0 0};
+    %end;
+    .thread T_0;
+# The file index is used to find the file name in the following table.
+:file_names 4;
+    "N/A";
+    "<interactive>";
+    "wireTest_tb.v";
+    "./wireTest.v";
